@@ -29,10 +29,11 @@ export default function Home() {
       .maybeSingle();
 
     if (errorBusqueda) {
-      setMensaje("No pudimos comprobar la participación. Intentá nuevamente.");
-      setEnviando(false);
-      return;
-    }
+  console.error("Error al comprobar:", errorBusqueda);
+  setMensaje(`Error al comprobar: ${errorBusqueda.message}`);
+  setEnviando(false);
+  return;
+}
 
     if (participanteExistente) {
       setMensaje("Ese nombre ya participó del Prode de Bambam.");
