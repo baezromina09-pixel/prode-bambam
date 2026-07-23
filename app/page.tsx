@@ -46,9 +46,11 @@ export default function Home() {
     });
 
     if (error) {
-      setMensaje("No se pudo guardar la participación. Intentá nuevamente.");
-      setEnviando(false);
-      return;
+  console.error("Error al guardar:", error);
+  setMensaje(`Error al guardar: ${error.message}`);
+  setEnviando(false);
+  return;
+
     }
 
     setMensaje("¡Tu fecha quedó guardada! Gracias por participar 💙");
